@@ -8,5 +8,11 @@
   <%= @training.text %>
 </p>
 
+<h2>Comments:</h2>
+<%= render @training.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
 <td><%= link_to 'Edit', edit_training_path %></td>
 <%= link_to 'Back', trainings_path %>
