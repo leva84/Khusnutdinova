@@ -4,7 +4,7 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@training.errors.count, "error") %> prohibited
-        this article from being saved:
+        this training from being saved:
       </h2>
       <ul>
         <% @training.errors.full_messages.each do |msg| %>
