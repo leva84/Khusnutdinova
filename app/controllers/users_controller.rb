@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    redirect_to root_path
   end
 
   def show
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to @user
-    else
+    elsif !@user.save
       render 'new'
     end
   end
