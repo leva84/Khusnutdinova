@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
+    <meta charset="utf-8">
     <title>Khusnutdinova</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,38 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="bg-light fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 float-left">
+            <%= link_to image_tag('psychic-waves.png', class: 'brand mt-2'), root_path%>
+            <div class="h4"><%= 'Khusnutdinova' %></div>
+          </div>
+          <div class="col-6 float-right">
+            <ul class="float-right">
+              <% if user_signed_in? %>
+                <li><%= link_to 'Профиль', current_user %></li>
+                <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Войти', new_user_session_path %></li>
+                <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mt-5 pt-5">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
   </body>
 </html>
