@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <strong>Cover:</strong>
+  <%= image_tag(@training.cover.thumb.url) if @training.cover? %>
+</p>
+
+<p>
   <strong>Text:</strong>
   <%= @training.text %>
 </p>

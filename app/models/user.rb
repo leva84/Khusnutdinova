@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  mount_uploader :avatar, AvatarUploader
+
   private
 
   def set_name
