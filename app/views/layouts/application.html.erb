@@ -12,15 +12,17 @@
 
   <body>
 
-    <nav class="bg-light fixed-top">
+    <nav class="bg-white fixed-top rounded shadow mb-5">
       <div class="container">
         <div class="row">
-          <div class="col-6 float-left">
-            <%= link_to image_tag('psychic-waves.png', class: 'brand mt-2'), root_path%>
-            <div class="h4"><%= 'Khusnutdinova' %></div>
+          <div class="col-md-6 float-left">
+            <div class="h4 text-dark">
+              <%= link_to image_tag('psychic-waves.png', class: 'brand mt-2'), root_path %>
+              <%= link_to 'Khusnutdinova', root_path %>
+            </div>
           </div>
-          <div class="col-6 float-right">
-            <ul class="float-right">
+          <div class="col-md-6 float-right">
+            <ul class="float-right pt-0">
               <% if user_signed_in? %>
                 <li><%= link_to 'Профиль', current_user %></li>
                 <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
@@ -34,11 +36,11 @@
       </div>
     </nav>
 
-    <div class="mt-5 pt-5">
+    <div class="mt-5 pt-5 pb-5 mb-5 bg-light rounded shadow p-1">
       <%= yield %>
     </div>
 
-    <footer class="footer">
+    <footer class="footer bg-white rounded shadow p-1">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
