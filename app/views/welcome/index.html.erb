@@ -1,16 +1,110 @@
-<span>Здравствуйте <%= current_user.name if current_user.present? %></span>
-<div class="navbar-collapse collapse navbar-responsive-collapse">
-  <ul class="nav navbar-nav">
-    <% if user_signed_in? %>
-      <li><%= link_to 'Профиль', current_user %></li>
-      <li><%= link_to 'Выйти', destroy_user_session_path,
-                      method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Войти', new_user_session_path %></li>
-      <li><%= link_to 'Зарегистрироваться',
-                      new_user_registration_path %></li>
-    <% end %>
-  </ul>
+<div class="container d-flex justify-content-center pt-5 pb-3">
+  <p class="h2">Здравствуйте <%= current_user.name if current_user.present? %> !!!</p>
+</div>
+<div class="d-flex justify-content-center">
+  <p class="h4">Вас приветствует !</p>
+</div>
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-5">
+          <%= image_tag('pp.jpeg', class: 'img-fluid rounded-circle shadow p-0 bg-white') %>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading font-weight-bold pt-4 pb-4">
+            Миляуша Наримановна Хуснутдинова
+            <h3 class="text-muted font-weight-bold font-italic">Тренер и ведущий:</h3>
+          </h2>
+
+          <p class="lead h4 pt-3 font-italic">
+            психолог-игропрактик,
+            сертифицированный тренер-наставник прорывных компетенций,
+            специалист по МАК (метафорические
+            ассоциативные карты),
+            автор тренинговых программ,
+            ведущая трансформационных игр
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-2 border rounded shadow p-1 d-flex justify-content-center">
+      <%= link_to 'Trainings', controller: 'trainings' %>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Trainings', controller: 'trainings' %>
+<div class="container shadow-lg p-1 mb-5 bg-light rounded">
+  <%= render 'welcome/carousel' %>
+</div>
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+      <h2>Heading</h2>
+      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted font-italic">It'll blow your mind.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag('L9neEw.jpg', class: 'featurette-image img-fluid mx-auto', data: { src: "holder.js/500x500/auto" }) %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted font-italic">See for yourself.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <%= image_tag('0f26481ea09adc379370290014d1b6b7.jpg', class: 'featurette-image img-fluid mx-auto', data: { src: "holder.js/500x500/auto" }) %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">And lastly, this one. <span class="text-muted font-italic">Checkmate.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag('look.com.ua-100744.jpg', class: 'featurette-image img-fluid mx-auto', data: { src: "holder.js/500x500/auto" }) %>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->

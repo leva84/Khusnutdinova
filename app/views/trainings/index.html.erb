@@ -1,22 +1,6 @@
-<h1>Listing trainings</h1>
+<h1 class="text-center font-weight-bold">Тренинги</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="1"></th>
-  </tr>
+<%= render 'trainings/training' %>
 
-  <% @trainings.each do |training| %>
-    <tr>
-      <td><%= training.title %></td>
-      <td><%= training.text %></td>
-      <td><%= link_to 'Show', training_path(training) %></td>
-      <td><%= link_to 'Edit', edit_training_path(training) %></td>
-      <td><%= link_to 'Destroy', training_path(training), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to 'New Training', new_training_path %>
-<%= link_to "Back", root_path %>
+  <%= link_to 'Новый Тренинг', new_training_path, class: 'btn btn-success' %>
+  <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
