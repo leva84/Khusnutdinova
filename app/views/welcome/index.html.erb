@@ -1,9 +1,8 @@
-<div class="container d-flex justify-content-center pt-5 pb-3">
-  <p class="h2">Здравствуйте <%= current_user.name if current_user.present? %> !!!</p>
+
+<div class="container shadow-lg p-1 mb-5 bg-light rounded">
+  <%= render 'welcome/carousel' %>
 </div>
-<div class="d-flex justify-content-center">
-  <p class="h4">Вас приветствует !</p>
-</div>
+
 <div class="container pb-5">
   <div class="row">
     <div class="col-md-10">
@@ -14,16 +13,19 @@
         <div class="col-md-7">
           <h2 class="featurette-heading font-weight-bold pt-4 pb-4">
             Миляуша Наримановна Хуснутдинова
-            <h3 class="text-muted font-weight-bold font-italic">Тренер и ведущий:</h3>
+            <h3 class="text-muted font-weight-bold font-italic">Официальный сайт где можно</h3>
           </h2>
 
           <p class="lead h4 pt-3 font-italic">
-            психолог-игропрактик,
-            сертифицированный тренер-наставник прорывных компетенций,
-            специалист по МАК (метафорические
-            ассоциативные карты),
-            автор тренинговых программ,
-            ведущая трансформационных игр
+            <ul>
+              <li>записаться на консультацию</li>
+              <li>заказать трансформационную игру</li>
+              <li>тренинг</li>
+              <li>сделать он-лайн расклад</li>
+              <li>скачать книги</li>
+              <li>медитации</li>
+              <li>метафорические карты</li>
+            </ul>
           </p>
         </div>
       </div>
@@ -36,9 +38,6 @@
   </div>
 </div>
 
-<div class="container shadow-lg p-1 mb-5 bg-light rounded">
-  <%= render 'welcome/carousel' %>
-</div>
 
 <div class="container marketing">
 

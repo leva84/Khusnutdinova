@@ -31,6 +31,16 @@
   </p>
 
   <p>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </p>
+
+  <p><%= form.datetime_select :start_time, class: 'form-control' %></p>
+  <p><%= form.datetime_select :finish_time, class: 'form-control' %></p>
+
+  <p><%= form.number_field :cost %></p>
+
+  <p>
     <%= form.submit %>
   </p>
 

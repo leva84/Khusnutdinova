@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <title>Khusnutdinova</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <meta charset="utf-8">
+  <title>Khusnutdinova</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
 
-    <nav class="bg-white fixed-top rounded shadow mb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 float-left">
-            <div class="h4 text-dark pt-2">
-              <%= link_to image_tag('psychic-waves.png', class: 'brand mt-2'), root_path %>
-              <%= link_to 'Khusnutdinova', root_path %>
-            </div>
-          </div>
-          <div class="col-md-6 float-right">
-            <div class="float-right pt-3 mb-3">
-              <% if user_signed_in? %>
-                <%= link_to 'Профиль', current_user, class: 'btn btn-light' %>
-                <%= link_to 'Выйти', destroy_user_session_path, class: 'btn btn-light', method: :delete %>
-              <% else %>
-                <%= link_to 'Войти', new_user_session_path, class: 'btn btn-light' %>
-                <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-light' %>
-              <% end %>
-            </div>
-          </div>
+<nav class="bg-white fixed-top rounded shadow mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 float-left">
+        <div class="h4 text-dark pt-2">
+          <%= link_to image_tag('psychic-waves.png', class: 'brand mt-2'), root_path %>
+          <%= link_to 'Khusnutdinova', root_path %>
         </div>
       </div>
-    </nav>
-
-    <div class="mt-5 pt-5 pb-5 mb-5 bg-light rounded shadow p-1">
-      <%= yield %>
-    </div>
-
-    <footer class="footer bg-white rounded shadow p-1">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+      <div class="col-md-6 float-right">
+        <div class="float-right pt-3 mb-3">
+          <% if user_signed_in? %>
+            <%= link_to 'Профиль', current_user, class: 'btn btn-light' %>
+            <%= link_to 'Выйти', destroy_user_session_path, class: 'btn btn-light', method: :delete %>
+          <% else %>
+            <%= link_to 'Войти', new_user_session_path, class: 'btn btn-light' %>
+            <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-light' %>
+          <% end %>
+        </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</nav>
 
-  </body>
+<div class="mt-5 pt-5 pb-5 mb-5 bg-light rounded shadow p-1">
+  <%= yield %>
+</div>
+
+<footer class="footer bg-white rounded shadow p-1">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+</body>
 </html>
