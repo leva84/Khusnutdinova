@@ -1,49 +1,86 @@
-<p>
-  <strong>Title:</strong>
-  <%= @training.title %>
-</p>
+<div class="parallax-window" data-parallax="scroll" data-position="top" data-bleed="10"
+     data-natural-width="1400" data-natural-height="900" data-image-src="<%= @training.cover.url %>">
+  <hr class="featurette-divider">
+  <div class="container">
+    <div class="row featurette  shadow-lg p-5 rounded">
+      <div class="col-md-7">
+        <h2 class="featurette-heading text-muted font-italic"><%= @training.title %></h2>
+        <p class="lead"><%= @training.text %></p>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag(@training.cover.thumb.url) if @training.cover? %>
+        <p>
+          <strong>Address:</strong>
+          <%= @training.address %>
+        </p>
 
-<p>
-  <strong>Cover:</strong>
-  <%= image_tag(@training.cover.thumb.url) if @training.cover? %>
-</p>
+        <p>
+          <strong>Start:</strong>
+          <%= @training.start_time %>
+        </p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @training.text %>
-</p>
+        <p>
+          <strong>Finish:</strong>
+          <%= @training.finish_time %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @training.address %>
-</p>
+        <p>
+          <strong>Cost:</strong>
+          <%= @training.cost %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Start:</strong>
-  <%= @training.start_time %>
-</p>
 
-<p>
-  <strong>Finish:</strong>
-  <%= @training.finish_time %>
-</p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @training.cost %>
-</p>
+<% @training.descriptions.each_with_index do |description, index| %>
+  <% if (index + 1).even? %>
+    <hr class="featurette-divider">
+    <div class="container">
+      <div class="row featurette shadow-lg p-5 rounded">
+        <div class="col-md-7">
+          <h2 class="featurette-heading text-muted font-italic"><%= description.title %></h2>
+          <p class="lead"><%= description.text %></p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag(description.picture.url) if description.picture? %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <hr class="featurette-divider">
+    <div class="container">
+      <div class="row featurette shadow-lg p-5 rounded">
+        <div class="col-md-5">
+          <%= image_tag(description.picture.url) if description.picture? %>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading text-muted font-italic"><%= description.title %></h2>
+          <p class="lead"><%= description.text %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
-<h2>description</h2>
-<%=render @training.descriptions %>
+<hr class="featurette-divider">
+<div class="container">
+  <h2>Добавить описание:</h2>
+  <%= render 'descriptions/form' %>
+</div>
 
-<h2>Add a descriptions:</h2>
-<%= render 'descriptions/form' %>
+<hr class="featurette-divider">
+<div class="container">
+  <h2>Comments:</h2>
+  <%= render @training.comments %>
 
-<h2>Comments:</h2>
-<%= render @training.comments %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+</div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-
-<td><%= link_to 'Edit', edit_training_path %></td>
-<%= link_to 'Back', trainings_path %>
+<div class="container pb-5 mb-4">
+  <td><%= link_to 'Edit', edit_training_path, class: "btn btn-warning" %></td>
+  <%= link_to 'Back', trainings_path, class: 'btn btn-secondary' %>
+</div>
