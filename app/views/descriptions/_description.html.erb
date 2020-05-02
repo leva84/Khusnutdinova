@@ -1,0 +1,21 @@
+<p>
+  <%= image_tag(description.picture.to_s) %>
+</p>
+
+<p>
+  <strong>title:</strong>
+  <%= description.title %>
+</p>
+
+<p>
+  <strong>text:</strong>
+  <%= description.text %>
+</p>
+
+<p>
+  <%= description.created_at %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Description', [description.training, description], method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

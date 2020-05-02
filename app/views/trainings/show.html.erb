@@ -33,6 +33,12 @@
   <%= @training.cost %>
 </p>
 
+<h2>description</h2>
+<%=render @training.descriptions %>
+
+<h2>Add a descriptions:</h2>
+<%= render 'descriptions/form' %>
+
 <h2>Comments:</h2>
 <%= render @training.comments %>
 
