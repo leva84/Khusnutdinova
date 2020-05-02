@@ -17,3 +17,16 @@
 @import "brand";
 @import "welcome";
 @import "trainings";
+
+.parallax {
+  z-index: 10;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.bgimg {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

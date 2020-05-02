@@ -16,4 +16,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require cable
 //= require_tree .
+//= requaire https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+//= require parallax.js-1.5.0/parallax.js
