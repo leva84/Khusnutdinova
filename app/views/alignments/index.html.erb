@@ -1,0 +1,22 @@
+<% @alignments.each do |alignment| %>
+
+  <div class="container mt-5">
+    <div class="card">
+      <h5 class="card-header"><%= alignment.title %></h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= alignment.deck_name %></h5>
+        <p class="card-text"><%= alignment.rule %></p>
+        <%= link_to 'Show', alignment, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_alignment_path(alignment), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', alignment, class: "btn btn-primary",
+                        method: :delete, data: {confirm: 'Are you sure?'} %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<br>
+<div class="mb-5">
+  <%= link_to 'New Alignment', new_alignment_path %>
+</div>
+

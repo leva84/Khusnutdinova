@@ -16,7 +16,7 @@
         <div class="carousel-item active">
           <%= link_to(image_tag(training.cover.to_s, class: "d-block w-100 img-fluid card-img-top"),
                       training_path(training.id)) %>
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption d-md-block">
             <h4><%= training.title %></h4>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <%= link_to 'Подробнее', training_path(training.id), class: "btn btn-primary" %>
@@ -26,7 +26,7 @@
         <div class="carousel-item">
           <%= link_to(image_tag(training.cover.to_s, class: "d-block w-100 img-fluid card-img-top"),
                       training_path(training.id)) %>
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption d-md-block">
             <h4><%= training.title %></h4>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <%= link_to 'Подробнее', training_path(training.id), class: "btn btn-primary" %>

@@ -1,0 +1,38 @@
+<%= form_with(model: alignment, local: true) do |form| %>
+  <% if alignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alignment.errors.count, "error") %> prohibited this alignment from being saved:</h2>
+
+      <ul>
+      <% alignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="mt-5 mb-5">
+  <div class="form-group">
+    <%= form.label 'Название расклада' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label 'Название колоды' %><br>
+    <%= form.text_field :deck_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label 'Правила расклада' %><br/>
+    <%= form.text_area :rule, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label 'Количество карт' %><br>
+    <%= form.number_field :quantity, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary mb-2' %>
+  </div>
+</div>
+<% end %>
