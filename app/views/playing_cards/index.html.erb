@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Playing Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playing_cards.each do |playing_card| %>
+      <tr>
+        <td><%= link_to 'Show', playing_card %></td>
+        <td><%= link_to 'Edit', edit_playing_card_path(playing_card) %></td>
+        <td><%= link_to 'Destroy', playing_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Playing Card', new_playing_card_path %>
