@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:edit, :update, :destroy]
 
   # GET /games
   # GET /games.json
@@ -10,12 +10,13 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-
+    @game = Game.find(params[:format])
   end
 
   # GET /games/new
   def new
-    @game = Game.new
+    @game = Game.new(alignment_id: params[:alignment_id])
+    redirect_to method: :post
   end
 
   # GET /games/1/edit
@@ -25,16 +26,14 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(game_params)
-
-    respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
-      else
-        format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    @alignment = Alignment.find(params[:alignment_id])
+    # создаем игру для залогиненного юзера
+    @game = Game.create_game_for_user!(current_user, @alignment)
+    # отправляемся на страницу игры
+    if @game.present?
+      redirect_to game_path(@game)
+    else
+      redirect_to :back, alert: 'Что-то пошдо не так :('
     end
   end
 

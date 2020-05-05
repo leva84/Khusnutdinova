@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :users
-  resources :alignments do
-    resources :games
-  end
+  resources :alignments
+  resource :game, only: [:create, :show, :update, :destroy]
 
   resources :trainings do
     resources :comments

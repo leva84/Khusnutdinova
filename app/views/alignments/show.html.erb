@@ -4,6 +4,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= @alignment.deck_name %></h5>
       <p class="card-text"><%= @alignment.rule %></p>
+      <p class="card-text"><%= link_to 'Расклад', game_path(alignment_id: @alignment.id), method: :post %></p>
     </div>
   </div>
 </div>

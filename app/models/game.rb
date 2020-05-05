@@ -12,7 +12,7 @@ class Game < ApplicationRecord
     transaction do
       game = create!(user: user, alignment: alignment)
       cards = Card.where(deck_name: game.deck_name)
-      cards_play = cards.rand(game.quantity).uniq!
+      cards_play = cards.sample(game.quantity)
 
       cards_play.each do |card|
         PlayingCard.create!(card: card, game: game)

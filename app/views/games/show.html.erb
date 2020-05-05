@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="container pt-5 mt-5">
+  <div>
+    <% @game.playing_cards.each do |card| %>
+      <p><%= card.name %></p>
+    <% end %>
+  </div>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  <%= link_to 'Back', :back %>
+</div>
