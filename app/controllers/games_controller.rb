@@ -28,12 +28,12 @@ class GamesController < ApplicationController
   def create
     @alignment = Alignment.find(params[:alignment_id])
     # создаем игру для залогиненного юзера
-    @game = Game.create_game_for_user!(current_user, @alignment)
+    @game = Game.create_game_for_user!(current_user, @alignment) if current_user.present?
     # отправляемся на страницу игры
     if @game.present?
       redirect_to game_path(@game)
     else
-      redirect_to :back, alert: 'Что-то пошдо не так :('
+      redirect_to @alignment, alert: 'Вам необходимо зарегестрироваться либо войти :)'
     end
   end
 
