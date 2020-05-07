@@ -42,11 +42,11 @@ class PlayingCardsController < ApplicationController
   def update
     respond_to do |format|
       if @playing_card.update(playing_card_params)
-        format.html { redirect_to @playing_card, notice: 'Playing card was successfully updated.' }
-        format.json { render :show, status: :ok, location: @playing_card }
+        format.html { redirect_to @playing_card.game, notice: 'Ваш замечательный ответ сохранен :)' }
+        #format.json { render :show, status: :ok, location: @playing_card }
       else
         format.html { render :edit }
-        format.json { render json: @playing_card.errors, status: :unprocessable_entity }
+        #format.json { render json: @playing_card.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +69,6 @@ class PlayingCardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def playing_card_params
-      params.fetch(:playing_card, {})
+      params.require(:playing_card).permit(:answer)
     end
 end

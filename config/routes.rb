@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :alignments
-  resource :game, only: [:create, :show, :update, :destroy]
+  resources :playing_cards
+  resource :game
 
   resources :trainings do
     resources :comments
