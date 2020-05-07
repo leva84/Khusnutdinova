@@ -1,0 +1,14 @@
+<div class="container pt-5 mt-5">
+  <p class="h3" id="notice"><%= notice %></p>
+  <div class="row">
+    <% @game.playing_cards.each do |card| %>
+      <div class="col">
+        <p><%= card.name %></p>
+        <p><%= card.answer %></p>
+        <p><%= render 'playing_cards/form', playing_card: card %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pb-5 mb-5"><%= link_to 'Back', @game.alignment %></div>
+</div>

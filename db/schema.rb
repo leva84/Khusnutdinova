@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_002104) do
+ActiveRecord::Schema.define(version: 2020_05_03_152701) do
+
+  create_table "alignments", force: :cascade do |t|
+    t.string "title"
+    t.text "rule"
+    t.integer "quantity"
+    t.string "deck_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.string "photo", null: false
+    t.string "shirt", null: false
+    t.string "deck_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -31,14 +49,24 @@ ActiveRecord::Schema.define(version: 2020_05_02_002104) do
     t.index ["training_id"], name: "index_descriptions_on_training_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "photo"
-    t.integer "training_id"
+  create_table "games", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "alignment_id"
+    t.datetime "finished_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["training_id"], name: "index_photos_on_training_id"
-    t.index ["user_id"], name: "index_photos_on_user_id"
+    t.index ["alignment_id"], name: "index_games_on_alignment_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "playing_cards", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "card_id", null: false
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_playing_cards_on_card_id"
+    t.index ["game_id"], name: "index_playing_cards_on_game_id"
   end
 
   create_table "trainings", force: :cascade do |t|

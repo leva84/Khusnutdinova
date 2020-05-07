@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :users
+  resources :alignments
+  resources :playing_cards
+  resource :game
 
   resources :trainings do
     resources :comments

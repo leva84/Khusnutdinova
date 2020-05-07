@@ -1,0 +1,17 @@
+<div class="container mt-5 mb-5">
+  <p class="h3" id="notice"><%= notice %></p>
+  <p class="h3" id="alert"><%= alert %></p>
+  <div class="card">
+    <h5 class="card-header"><%= @alignment.title %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= @alignment.deck_name %></h5>
+      <p class="card-text"><%= @alignment.rule %></p>
+      <p class="card-text"><%= link_to 'Расклад', game_path(alignment_id: @alignment.id), method: :post %></p>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_alignment_path(@alignment), class: "btn btn-warning" %> |
+<%= link_to 'Back', alignments_path, class: 'btn btn-secondary' %> |
+<%= link_to 'Destroy', alignment_path, class: "btn btn-danger",
+            method: :delete, data: {confirm: 'Are you sure?'} %>

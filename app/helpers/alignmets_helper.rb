@@ -1,0 +1,2 @@
+module AlignmetsHelper
+end
