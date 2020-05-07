@@ -1,22 +1,29 @@
-<div class="container d-flex justify-content-center pt-5 pb-3">
-  <p class="h2">Здравствуйте <%= current_user.name if current_user.present? %> !!!</p>
+<div class="container text-center pt-5 pb-3 pb-5">
+  <div class="row w-100 pb-3">
+    <p class="h2 col ">Здравствуйте <%= current_user.name if current_user.present? %> !!!</p>
+  </div>
+  <div class="row">
+      <div class="col h-25 w-25">
+        <%= image_tag user_avatar(@user), class: 'img-fluid rounded-circle shadow p-1 bg-white' %>
+      </div>
+
+      <div class="col text-left">
+        <div class="p-2">
+          <strong>Имя:</strong><br/>
+          <p class="text-muted font-italic h4">
+            <%= @user.name %>
+          </p>
+        </div>
+        <div class="p-2">
+          <strong>Email:</strong><br/>
+          <p class="text-muted font-italic h4">
+            <%= @user.email %>
+          </p>
+        </div>
+      </div>
+  </div>
+  <div class="row p-5 m-5 d-flex justify-content-center">
+    <%= link_to 'Обновить профиль', edit_user_registration_path, class: "btn btn-warning p-2 m-1" %>
+    <%= link_to 'Назад', root_path, class: 'btn btn-secondary p-2 m-1' %>
+  </div>
 </div>
-<div class="d-flex justify-content-center">
-  <p>
-    <strong>Avatar:</strong>
-  </p>
-  <%= image_tag user_avatar(@user) %>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-</div>
-
-<td><%= link_to 'Edit', edit_user_registration_path %></td>
-<%= link_to 'Back', root_path %>
