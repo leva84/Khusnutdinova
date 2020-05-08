@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container pt-4 mt-3">
+    <p id="notice"><%= notice %></p>
+    <h1 class="text-center m-5">Карты этого расклада</h1>
 
-<h1>Playing Cards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @playing_cards.each do |playing_card| %>
-      <tr>
-        <td><%= link_to 'Show', playing_card %></td>
-        <td><%= link_to 'Edit', edit_playing_card_path(playing_card) %></td>
-        <td><%= link_to 'Destroy', playing_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <% @playing_cards.each do |playing_card| %>
+    <div class="row">
+      <div class="col h3 m-3">
+        <h3 class="text-center"><%= playing_card.name %></h3>
+        <%= image_tag(playing_card.photo,  class: "w-100 h-75 img-thumbnail shadow text-center") %>
+      </div>
+      <div class="col m-3 p-1">
+        <h3 class="text-center">Ваш ответ: </h3>
+        <p class="pt-2"><%= playing_card.answer %></p>
+      </div>
+    </div>
+    <% if !playing_card.answer.present? %>
+      <%= render 'playing_cards/form', playing_card: playing_card %>
     <% end %>
-  </tbody>
-</table>
+    <hr/>
+  <% end %>
 
-<br>
+  <div class="mb-5 pb-5"><%= link_to 'Назад', :back %></div>
 
-<%= link_to 'New Playing Card', new_playing_card_path %>
+</div>

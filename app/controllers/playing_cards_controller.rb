@@ -4,12 +4,13 @@ class PlayingCardsController < ApplicationController
   # GET /playing_cards
   # GET /playing_cards.json
   def index
-    @playing_cards = PlayingCard.all
+    @playing_cards = PlayingCard.where(game_id: "#{request.parameters.first.last}")
   end
 
   # GET /playing_cards/1
   # GET /playing_cards/1.json
   def show
+    @playing_card = find(params[:id])
   end
 
   # GET /playing_cards/new
