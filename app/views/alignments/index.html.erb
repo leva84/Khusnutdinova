@@ -1,14 +1,16 @@
+<div class="container mt-5 pt-5">
+  <%= link_to 'Назад', root_path, class: 'btn btn-secondary' %>
+</div>
 <% @alignments.each do |alignment| %>
 
   <div class="container mt-5">
     <div class="card">
-      <h5 class="card-header"><%= alignment.title %></h5>
+      <h5 class="card-header">Расклад: <%= alignment.title %></h5>
       <div class="card-body">
-        <h5 class="card-title"><%= alignment.deck_name %></h5>
-        <p class="card-text"><%= alignment.rule %></p>
-        <%= link_to 'Show', alignment, class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_alignment_path(alignment), class: "btn btn-primary" %>
-        <%= link_to 'Destroy', alignment, class: "btn btn-primary",
+        <h5 class="card-title">Колода: <%= alignment.deck_name %></h5>
+        <%= link_to 'Посмотреть правила', alignment, class: "btn btn-primary" %>
+        <%= link_to 'Обновить', edit_alignment_path(alignment), class: "btn btn-warning" %>
+        <%= link_to 'Удалить', alignment, class: "btn btn-danger",
                         method: :delete, data: {confirm: 'Are you sure?'} %>
       </div>
     </div>
@@ -16,7 +18,8 @@
 <% end %>
 
 <br>
-<div class="mb-5">
-  <%= link_to 'New Alignment', new_alignment_path %>
+<div class="container mb-5">
+  <%= link_to 'Назад', welcome_index_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Новый Расклад', root_path, class: 'btn btn-success' %>
 </div>
 

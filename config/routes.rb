@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :alignments
   resources :playing_cards
+  resources :games, only: [:index]
   resource :game
 
   resources :trainings do

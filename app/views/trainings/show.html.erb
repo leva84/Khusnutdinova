@@ -1,14 +1,14 @@
 <div class="parallax-window" data-parallax="scroll" data-position="top" data-bleed="10"
      data-natural-width="1400" data-natural-height="900" data-image-src="<%= @training.cover.url %>">
   <hr class="featurette-divider">
-  <div class="container">
+  <div class="container pt-5 mt-5">
     <div class="row featurette  shadow-lg p-5 rounded">
       <div class="col-md-7">
         <h2 class="featurette-heading text-muted font-italic"><%= @training.title %></h2>
         <p class="lead"><%= @training.text %></p>
       </div>
       <div class="col-md-5">
-        <%= image_tag(@training.cover.thumb.url) if @training.cover? %>
+        <%= image_tag(@training.cover.thumb.url, class: 'img-fluid') if @training.cover? %>
         <p>
           <strong>Address:</strong>
           <%= @training.address %>
@@ -45,7 +45,7 @@
           <p class="lead"><%= description.text %></p>
         </div>
         <div class="col-md-5">
-          <%= image_tag(description.picture.url) if description.picture? %>
+          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="container">
       <div class="row featurette shadow-lg p-5 rounded">
         <div class="col-md-5">
-          <%= image_tag(description.picture.url) if description.picture? %>
+          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
         </div>
         <div class="col-md-7">
           <h2 class="featurette-heading text-muted font-italic"><%= description.title %></h2>
@@ -73,10 +73,10 @@
 
 <hr class="featurette-divider">
 <div class="container">
-  <h2>Comments:</h2>
+  <h2>Коментарии:</h2>
   <%= render @training.comments %>
 
-  <h2>Add a comment:</h2>
+  <h2>Оставить коментарий:</h2>
   <%= render 'comments/form' %>
 </div>
 

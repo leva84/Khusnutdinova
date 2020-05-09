@@ -1,10 +1,10 @@
 <p>
-  <strong>Commenter:</strong>
+  <strong>Прокоментировал:</strong><br/>
   <%= comment.commenter %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Коментарий:</strong><br/>
   <%= comment.body %>
 </p>
 
@@ -13,5 +13,6 @@
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.training, comment], class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Удалить коментарий', [comment.training, comment],
+              class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>

@@ -1,10 +1,12 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:edit, :update, :destroy]
+  before_action :set_game, only: [:edit, :update]
 
   # GET /games
   # GET /games.json
   def index
     @games = Game.all
+    @user = current_user
+    @user_games = @user.games
   end
 
   # GET /games/1
@@ -52,13 +54,10 @@ class GamesController < ApplicationController
   end
 
   # DELETE /games/1
-  # DELETE /games/1.json
   def destroy
+    @game = Game.find(params[:format])
     @game.destroy
-    respond_to do |format|
-      format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to games_url, notice: 'Вы успешно удалили расклад'
   end
 
   private
