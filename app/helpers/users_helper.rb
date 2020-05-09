@@ -5,7 +5,7 @@ module UsersHelper
     if user.avatar?
       user.avatar.url
     else
-      asset_path('orig.jpeg', skip_pipeline: true)
+      asset_path('orig.jpg', skip_pipeline: true)
     end
   end
 end
