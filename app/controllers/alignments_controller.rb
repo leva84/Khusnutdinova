@@ -23,7 +23,7 @@ class AlignmentsController < ApplicationController
 
   # POST /alignments
   def create
-    @alignment = Alignment.new(alignment_params)
+    @alignment = Alignment.create(alignment_params)
 
     if @alignment.save
       redirect_to @alignment
