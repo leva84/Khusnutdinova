@@ -3,8 +3,8 @@
   <div class="row">
     <% @game.playing_cards.each do |card| %>
       <div class="col">
-        <p class="text-center h3"><%= card.name %></p>
-        <p><%= image_tag(card.photo, class: 'w-100 img-thumbnail shadow') %></p>
+        <p class="text-center h6"><%= card.name %></p>
+        <p class="text-center"><%= image_tag(card.photo, class: 'shadow img-card') %></p>
         <p><%= card.answer %></p>
         <% if !card.answer.present? %>
           <p><%= render 'playing_cards/form', playing_card: card %></p>
@@ -13,5 +13,5 @@
     <% end %>
   </div>
 
-  <div class="pb-5 mb-5 mt-5"><%= link_to 'Back', @game.alignment %></div>
+  <div class="pb-5 mb-5 mt-5"><%= link_to 'Back', @game.alignment, class: 'btn btn-secondary' %></div>
 </div>

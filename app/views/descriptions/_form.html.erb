@@ -1,21 +1,21 @@
 <%= form_with(model: [@training, @training.descriptions.build ], local: true) do |form| %>
   <div class="form-group">
-    <%= form.label :picture %><br/>
+    <%= form.label 'Картинка' %><br/>
     <%# image_tag(@description.picture.thumb.url) if @description.picture? %>
     <%= form.file_field :picture, class: 'form-control-file' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :title %><br/>
+    <%= form.label 'Заголовок' %><br/>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :text %><br>
+    <%= form.label 'Текст' %><br>
     <%= form.text_area :text, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.submit class: 'btn btn-primary mb-2' %>
+    <%= form.submit 'Добавить', class: 'btn btn-primary mb-2' %>
   </div>
 <% end %>
