@@ -5,11 +5,11 @@
 
   <% @playing_cards.each do |playing_card| %>
     <div class="row">
-      <div class="col h3 m-3">
+      <div class="col m-3">
         <h3 class="text-center"><%= playing_card.name %></h3>
-        <%= image_tag(playing_card.photo,  class: "w-100 h-75 img-thumbnail shadow text-center") %>
+        <p class="text-center"><%= image_tag(playing_card.photo,  class: "img-thumbnail img-card shadow") %></p>
       </div>
-      <div class="col m-3 p-1">
+      <div class="col m-3">
         <h3 class="text-center">Ваш ответ: </h3>
         <% if !playing_card.answer.present? %>
           <%= render 'playing_cards/form', playing_card: playing_card %>

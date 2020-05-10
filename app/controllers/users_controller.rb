@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :show]
+
   def index
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
-    @user_games = @user.games
+    @user_name = @user.name
   end
 
   def new
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to @user
-    elsif !@user.save
+    else
       render 'new'
     end
   end

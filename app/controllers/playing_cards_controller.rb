@@ -1,5 +1,6 @@
 class PlayingCardsController < ApplicationController
   before_action :set_playing_card, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   # GET /playing_cards
   # GET /playing_cards.json

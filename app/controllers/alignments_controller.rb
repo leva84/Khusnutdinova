@@ -1,5 +1,6 @@
 class AlignmentsController < ApplicationController
   before_action :set_alignment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /alignments
   def index
