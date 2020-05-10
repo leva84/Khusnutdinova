@@ -9,9 +9,11 @@
       <div class="card-body">
         <h5 class="card-title">Колода: <%= alignment.deck_name %></h5>
         <%= link_to 'Посмотреть правила', alignment, class: "btn btn-primary" %>
-        <%= link_to 'Обновить', edit_alignment_path(alignment), class: "btn btn-warning" %>
-        <%= link_to 'Удалить', alignment, class: "btn btn-danger",
-                        method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% if admin %>
+          <%= link_to 'Обновить', edit_alignment_path(alignment), class: "btn btn-warning" %>
+          <%= link_to 'Удалить', alignment, class: "btn btn-danger",
+                          method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -20,6 +22,8 @@
 <br>
 <div class="container mb-5">
   <%= link_to 'Назад', welcome_index_path, class: 'btn btn-secondary' %>
-  <%= link_to 'Новый Расклад', new_alignment_path, class: 'btn btn-success' %>
+  <% if admin %>
+    <%= link_to 'Новый Расклад', new_alignment_path, class: 'btn btn-success' %>
+  <% end %>
 </div>
 

@@ -7,9 +7,11 @@
           <h3 class="card-title text-center font-weight-bold"><%= training.title %></h3>
           <p class="card-text font-italic"><%= training.text %></p>
           <%= link_to 'Подробнее', training_path(training), class: "btn btn-primary" %>
-          <%= link_to 'Изменить', edit_training_path(training), class: "btn btn-warning" %>
-          <%= link_to 'Удалить', training_path(training),
-                      class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+          <% if admin %>
+            <%= link_to 'Изменить', edit_training_path(training), class: "btn btn-warning" %>
+            <%= link_to 'Удалить', training_path(training),
+                        class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+          <% end %>
         </div>
       </div>
     </div>

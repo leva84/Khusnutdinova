@@ -65,11 +65,14 @@
   <% end %>
 <% end %>
 
-<hr class="featurette-divider">
-<div class="container">
-  <h2>Добавить описание:</h2>
-  <%= render 'descriptions/form' %>
-</div>
+<% if admin %>
+  <hr class="featurette-divider">
+  <div class="container">
+    <h2>Добавить описание:</h2>
+    <%= render 'descriptions/form' %>
+    <%= link_to 'Изменить тренинг', edit_training_path, class: "btn btn-warning" %>
+  </div>
+<% end %>
 
 <hr class="featurette-divider">
 <div class="container">
@@ -81,6 +84,5 @@
 </div>
 
 <div class="container pb-5 mb-4">
-  <td><%= link_to 'Edit', edit_training_path, class: "btn btn-warning" %></td>
   <%= link_to 'Back', trainings_path, class: 'btn btn-secondary' %>
 </div>

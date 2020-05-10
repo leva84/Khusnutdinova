@@ -18,8 +18,8 @@
                       training_path(training.id)) %>
           <div class="carousel-caption d-md-block">
             <h4><%= training.title %></h4>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <%= link_to 'Подробнее', training_path(training.id), class: "btn btn-primary" %>
+            <p><%= training.address %></p>
+            <p><%= training.start_time %></p>
           </div>
         </div>
       <% else %>
@@ -28,8 +28,8 @@
                       training_path(training.id)) %>
           <div class="carousel-caption d-md-block">
             <h4><%= training.title %></h4>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <%= link_to 'Подробнее', training_path(training.id), class: "btn btn-primary" %>
+            <p><%= training.address %></p>
+            <p><%= training.start_time %></p>
           </div>
         </div>
       <% end %>

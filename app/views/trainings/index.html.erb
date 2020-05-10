@@ -8,7 +8,9 @@
   <%= render 'trainings/training' %>
 
   <div class="container">
-    <%= link_to 'Новый Тренинг', new_training_path, class: 'btn btn-success' %>
+    <% if admin %>
+      <%= link_to 'Новый Тренинг', new_training_path, class: 'btn btn-success' %>
+    <% end %>
     <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
   </div>
 </div>
