@@ -16,7 +16,7 @@
         <div class="carousel-item active">
           <%= link_to(image_tag(training.cover.to_s, class: "d-block w-100 img-fluid card-img-top"),
                       training_path(training.id)) %>
-          <div class="carousel-caption d-md-block">
+          <div class="carousel-caption d-md-block" style="background: rgba(220, 202, 222, 0.7);">
             <h4><%= training.title %></h4>
             <p><%= training.address %></p>
             <p><%= training.start_time %></p>
@@ -26,7 +26,7 @@
         <div class="carousel-item">
           <%= link_to(image_tag(training.cover.to_s, class: "d-block w-100 img-fluid card-img-top"),
                       training_path(training.id)) %>
-          <div class="carousel-caption d-md-block">
+          <div class="carousel-caption d-md-block" style="background: rgba(220, 202, 222, 0.7);">
             <h4><%= training.title %></h4>
             <p><%= training.address %></p>
             <p><%= training.start_time %></p>

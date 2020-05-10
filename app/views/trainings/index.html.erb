@@ -1,16 +1,15 @@
-<div class="pb-5 mb-5 pt-5 mt-5">
-  <div class="container">
-    <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
-  </div>
-
-  <h1 class="text-center font-weight-bold">Список тренингов: </h1>
-
-  <%= render 'trainings/training' %>
-
-  <div class="container">
-    <% if admin %>
-      <%= link_to 'Новый Тренинг', new_training_path, class: 'btn btn-success' %>
-    <% end %>
-    <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
-  </div>
+<div class="container mt-5 pt-1">
+  <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
 </div>
+
+<h1 class="text-center font-weight-bold">Список тренингов: </h1>
+
+<%= render 'trainings/training' %>
+
+<div class="container">
+  <% if admin %>
+    <%= link_to 'Новый Тренинг', new_training_path, class: 'btn btn-success' %>
+  <% end %>
+  <%= link_to "Назад", root_path, class: 'btn btn-secondary' %>
+</div>
+

@@ -37,7 +37,7 @@ class AlignmentsController < ApplicationController
   # PATCH/PUT /alignments/1
   def update
     if @alignment.update(alignment_params)
-      redirect_to @alignment
+      redirect_to alignments_path
     else
       render 'edit'
     end

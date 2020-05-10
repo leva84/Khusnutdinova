@@ -1,34 +1,29 @@
-<div class="parallax-window" data-parallax="scroll" data-position="top" data-bleed="10"
-     data-natural-width="1400" data-natural-height="900" data-image-src="<%= @training.cover.url %>">
-  <hr class="featurette-divider">
-  <div class="container pt-5 mt-5">
-    <div class="row featurette  shadow-lg p-5 rounded">
-      <div class="col-md-7">
-        <h2 class="featurette-heading text-muted font-italic"><%= @training.title %></h2>
-        <p class="lead"><%= @training.text %></p>
-      </div>
-      <div class="col-md-5">
-        <%= image_tag(@training.cover.thumb.url, class: 'img-fluid') if @training.cover? %>
-        <p>
-          <strong>Address:</strong>
-          <%= @training.address %>
-        </p>
+<div class="container" style="background-image: url(<%= @training.cover.url %>)">
+  <div class="row featurette shadow-lg p-5 text-white rounded h-100" style="background: rgba(242, 230, 245, 0.5); ">
+    <div class="col-md-7">
+      <h2 class="featurette-heading text-primary font-italic text-center"><%= @training.title %></h2>
+      <p class="lead text-center"><%= @training.text %></p>
+    </div>
+    <div class="col-md-5 text-body p-5">
+      <p>
+        <strong>Address:</strong>
+        <%= @training.address %>
+      </p>
 
-        <p>
-          <strong>Start:</strong>
-          <%= @training.start_time %>
-        </p>
+      <p>
+        <strong>Start:</strong>
+        <%= @training.start_time %>
+      </p>
 
-        <p>
-          <strong>Finish:</strong>
-          <%= @training.finish_time %>
-        </p>
+      <p>
+        <strong>Finish:</strong>
+        <%= @training.finish_time %>
+      </p>
 
-        <p>
-          <strong>Cost:</strong>
-          <%= @training.cost %>
-        </p>
-      </div>
+      <p>
+        <strong>Cost:</strong>
+        <%= @training.cost %>
+      </p>
     </div>
   </div>
 </div>
@@ -41,7 +36,7 @@
     <div class="container">
       <div class="row featurette shadow-lg p-5 rounded">
         <div class="col-md-7">
-          <h2 class="featurette-heading text-muted font-italic"><%= description.title %></h2>
+          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
           <p class="lead"><%= description.text %></p>
         </div>
         <div class="col-md-5">
@@ -57,7 +52,7 @@
           <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading text-muted font-italic"><%= description.title %></h2>
+          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
           <p class="lead"><%= description.text %></p>
         </div>
       </div>
@@ -83,6 +78,6 @@
   <%= render 'comments/form' %>
 </div>
 
-<div class="container pb-5 mb-4">
+<div class="container">
   <%= link_to 'Back', trainings_path, class: 'btn btn-secondary' %>
 </div>
