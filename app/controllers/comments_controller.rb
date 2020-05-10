@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authorize_admin!, except: [:create]
 
   def create
     @training = Training.find(params[:training_id])

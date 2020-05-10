@@ -36,7 +36,7 @@ class GamesController < ApplicationController
     if @game.present?
       redirect_to game_path(@game)
     else
-      redirect_to @alignment, alert: 'Вам необходимо зарегестрироваться либо войти :)'
+      redirect_to @alignment
     end
   end
 

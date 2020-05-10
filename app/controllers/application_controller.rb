@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
         keys: [:password, :password_confirmation, :current_password]
     )
   end
+
+  def authorize_admin!
+    redirect_to root_path, alert: 'Шалунишка! :)' unless current_user.is_admin
+  end
 end

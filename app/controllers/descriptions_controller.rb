@@ -1,5 +1,5 @@
 class DescriptionsController < ApplicationController
-  #before_action :set_description, only: [:destroy]
+  before_action :authorize_admin!
 
   def create
     @training = Training.find(params[:training_id])
@@ -18,10 +18,5 @@ class DescriptionsController < ApplicationController
 
   def description_params
     params.require(:description).permit(:picture, :text, :title)
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_description
-    @description = Description.find(params[:id])
   end
 end
