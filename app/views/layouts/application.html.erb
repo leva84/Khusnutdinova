@@ -26,6 +26,9 @@
       </div>
       <div class="col-md-6 float-right">
         <div class="float-right pt-3 mb-3">
+          <% if admin %>
+            <%= link_to 'Пользователи', users_path, class: 'btn btn-light' %>
+          <% end %>
           <% if user_signed_in? %>
             <%= link_to 'Профиль', current_user, class: 'btn btn-light' %>
             <%= link_to 'Выйти', destroy_user_session_path, class: 'btn btn-light', method: :delete %>

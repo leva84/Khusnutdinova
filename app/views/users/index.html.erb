@@ -1,0 +1,14 @@
+<div class="container">
+  <% if admin %>
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="col">
+          <%= link_to(user.name, user) %>
+        </div>
+        <div class="col">
+          <%= link_to('Расклады', games_path(user)) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

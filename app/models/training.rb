@@ -3,7 +3,7 @@ class Training < ApplicationRecord
   has_many :descriptions, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 5 }
-  validates :text, presence: true, length: { maximum: 1000 }
+  validates :text, presence: true, length: { maximum: 10000 }
 
   mount_uploader :cover, CoverUploader
 end
