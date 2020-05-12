@@ -6,7 +6,7 @@
           <%= link_to(user.name, user) %>
         </div>
         <div class="col">
-          <%= link_to('Расклады', games_path(user)) %>
+          <%= link_to('Расклады', games_path(user_id: user.id)) %>
         </div>
       </div>
     <% end %>

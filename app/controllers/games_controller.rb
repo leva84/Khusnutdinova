@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :update]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   # GET /games
   # GET /games.json
   def index
     @games = Game.all
-    @user = current_user
+    @user = User.find(params[:user_id])
     @user_games = @user.games
   end
 

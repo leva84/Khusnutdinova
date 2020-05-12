@@ -22,7 +22,7 @@
       </div>
       <div class="p-2">
         <p><strong class="text-muted font-italic h4">
-          <%= link_to 'Ваши карточные расклады', games_path %>
+          <%= link_to 'Ваши карточные расклады', games_path(user_id: @user.id) %>
         </strong></p>
       </div>
     </div>

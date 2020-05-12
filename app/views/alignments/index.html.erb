@@ -1,5 +1,9 @@
 <div class="container">
-  <%= link_to 'Назад', root_path, class: 'btn btn-secondary' %>
+  <%= link_to 'На главную', root_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Назад', :back, class: 'btn btn-secondary' %>
+  <% if admin %>
+    <%= link_to 'Новый Расклад', new_alignment_path, class: 'btn btn-success' %>
+  <% end %>
 </div>
 <% @alignments.each do |alignment| %>
 
@@ -19,11 +23,4 @@
   </div>
 <% end %>
 
-<br>
-<div class="container mb-5">
-  <%= link_to 'Назад', welcome_index_path, class: 'btn btn-secondary' %>
-  <% if admin %>
-    <%= link_to 'Новый Расклад', new_alignment_path, class: 'btn btn-success' %>
-  <% end %>
-</div>
-
+<hr>

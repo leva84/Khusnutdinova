@@ -1,4 +1,6 @@
 <div class="container">
+  <%= link_to 'Список раскладов', alignments_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Назад', :back, class: 'btn btn-secondary' %>
   <div class="card">
     <h5 class="card-header"><%= @alignment.title %></h5>
     <div class="card-body">
@@ -8,7 +10,4 @@
                                        method: :post, class: "btn btn-primary" %></p>
     </div>
   </div>
-</div>
-<div class="container pb-4 mb-4">
-  <%= link_to 'Назад', alignments_path, class: 'btn btn-secondary' %>
 </div>
