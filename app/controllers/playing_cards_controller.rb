@@ -5,7 +5,7 @@ class PlayingCardsController < ApplicationController
   # GET /playing_cards
   # GET /playing_cards.json
   def index
-    @playing_cards = PlayingCard.where(game_id: "#{request.parameters.first.last}")
+    @playing_cards = PlayingCard.where(game_id: params[:game_id])
   end
 
   # GET /playing_cards/1
