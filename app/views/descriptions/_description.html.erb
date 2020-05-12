@@ -1,21 +1,41 @@
-<p>
-  <%= image_tag(description.picture.to_s) %>
-</p>
-
-<p>
-  <strong>title:</strong>
-  <%= description.title %>
-</p>
-
-<p>
-  <strong>text:</strong>
-  <%= description.text %>
-</p>
-
-<p>
-  <%= description.created_at %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Description', [description.training, description], method: :delete, data: {confirm: 'Are you sure?'} %>
-</p>
+<% @training.descriptions.each_with_index do |description, index| %>
+  <% if (index + 1).even? %>
+    <hr class="featurette-divider">
+    <div class="container", style="background-image: url(<%= description.picture.url %>)">
+      <div class="row featurette shadow-lg p-5 rounded", style="background: rgba(242, 230, 245, 0.7);">
+        <div class="col-md-7">
+          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
+          <p class="lead"><%= description.text %></p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
+        </div>
+        <% if admin %>
+          <div class="p-3">
+            <%= link_to 'Удалить описание', [description.training, description],
+                        class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <hr class="featurette-divider">
+    <div class="container", style="background-image: url(<%= description.picture.url %>)">
+      <div class="row featurette shadow-lg p-5 rounded", style="background: rgba(242, 230, 245, 0.7);">
+        <div class="col-md-5">
+          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
+          <p class="lead"><%= description.text %></p>
+        </div>
+        <% if admin %>
+          <div class="p-3">
+            <%= link_to 'Удалить Описание', [description.training, description],
+                        class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

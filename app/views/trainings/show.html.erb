@@ -1,5 +1,5 @@
 <div class="container" style="background-image: url(<%= @training.cover.url %>)">
-  <div class="row featurette shadow-lg p-5 text-white rounded h-100" style="background: rgba(242, 230, 245, 0.5); ">
+  <div class="row featurette shadow-lg p-5 text-white rounded h-100" style="background: rgba(242, 230, 245, 0.3); ">
     <div class="col-md-7">
       <h2 class="featurette-heading text-primary font-italic text-center"><%= @training.title %></h2>
       <p class="lead text-center"><%= @training.text %></p>
@@ -28,44 +28,16 @@
   </div>
 </div>
 
-
-
-<% @training.descriptions.each_with_index do |description, index| %>
-  <% if (index + 1).even? %>
-    <hr class="featurette-divider">
-    <div class="container">
-      <div class="row featurette shadow-lg p-5 rounded">
-        <div class="col-md-7">
-          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
-          <p class="lead"><%= description.text %></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <hr class="featurette-divider">
-    <div class="container">
-      <div class="row featurette shadow-lg p-5 rounded">
-        <div class="col-md-5">
-          <%= image_tag(description.picture.url, class: 'img-fluid') if description.picture? %>
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading text-muted font-italic text-center"><%= description.title %></h2>
-          <p class="lead"><%= description.text %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<%= render 'descriptions/description' %>
 
 <% if admin %>
   <hr class="featurette-divider">
   <div class="container">
     <h2>Добавить описание:</h2>
     <%= render 'descriptions/form' %>
-    <%= link_to 'Изменить тренинг', edit_training_path, class: "btn btn-warning" %>
+    <%= link_to 'Изменить Тренинг', edit_training_path, class: "btn btn-warning" %>
+    <%= link_to 'Удалить Тренинг', training_path(@training),
+                class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
 
@@ -79,5 +51,5 @@
 </div>
 
 <div class="container">
-  <%= link_to 'Back', trainings_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Назад', trainings_path, class: 'btn btn-secondary' %>
 </div>

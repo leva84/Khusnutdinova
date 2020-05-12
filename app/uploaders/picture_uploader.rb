@@ -25,7 +25,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  process resize_to_fill: [400, 400]
+  process resize_to_fill: [2000, 2000]
   # def scale(width, height)
   #   # do something
   # end
