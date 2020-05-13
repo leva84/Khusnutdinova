@@ -1,9 +1,8 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:edit, :update]
-  before_action :authenticate_user!, except: [:index]
+  before_action :set_game, only: [:show, :destroy]
+  before_action :authenticate_user!
 
   # GET /games
-  # GET /games.json
   def index
     @games = Game.all
     @user = User.find(params[:user_id])
@@ -11,23 +10,11 @@ class GamesController < ApplicationController
   end
 
   # GET /games/1
-  # GET /games/1.json
   def show
-    @game = Game.find(params[:format])
-  end
 
-  # GET /games/new
-  def new
-    @game = Game.new(alignment_id: params[:alignment_id])
-    redirect_to method: :post
-  end
-
-  # GET /games/1/edit
-  def edit
   end
 
   # POST /games
-  # POST /games.json
   def create
     @alignment = Alignment.find(params[:alignment_id])
     # создаем игру для залогиненного юзера
@@ -40,31 +27,16 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
-  def update
-    respond_to do |format|
-      if @game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /games/1
   def destroy
-    @game = Game.find(params[:format])
     @game.destroy
-    redirect_to games_url, notice: 'Вы успешно удалили расклад'
+    redirect_to games_url(user_id: current_user.id), notice: 'Вы успешно удалили расклад'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+      @game = Game.find(params[:format])
     end
 
     # Only allow a list of trusted parameters through.
