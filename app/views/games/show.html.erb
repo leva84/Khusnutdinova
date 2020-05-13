@@ -1,5 +1,8 @@
 <div class="container">
-  <div class="pt-5 mt-5 mb-2 text-center"><%= link_to 'Правила', @game.alignment, class: 'btn btn-secondary' %></div>
+  <div class="pt-5 mt-5 mb-2 text-center">
+    <%= link_to 'Правила', @game.alignment, class: 'btn btn-secondary' %>
+    <%= link_to 'Ваши расклады', games_path(user_id: @game.user_id), class: 'btn btn-secondary' %>
+  </div>
   <div class="row">
     <% @game.playing_cards.each do |card| %>
       <div class="col">
