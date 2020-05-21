@@ -24,6 +24,13 @@
         <strong>Cost:</strong>
         <%= @training.cost %>
       </p>
+      <% if !@training_subscription_user.present? %>
+        <div class="container">
+          <%= render 'training_subscriptions/form' %>
+        </div>
+      <% else %>
+          <%= render 'training_subscriptions/training_subscription' %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -40,6 +47,7 @@
                 class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
+
 
 <hr class="featurette-divider">
 <div class="container">

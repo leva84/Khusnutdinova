@@ -2,6 +2,7 @@ class User < ApplicationRecord
   before_validation :set_name, on: :create
 
   has_many :games, dependent: :destroy
+  has_many :training_subscriptions, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

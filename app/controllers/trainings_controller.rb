@@ -7,6 +7,8 @@ class TrainingsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @training_subscription_user = @training.training_subscriptions.find_by(user_id: @user.id) if @user.present?
   end
 
   def new
@@ -14,6 +16,7 @@ class TrainingsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create

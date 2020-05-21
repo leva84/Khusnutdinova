@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :trainings do
     resources :comments
     resources :descriptions
+    resources :training_subscriptions, only: %i[create destroy]
   end
 end

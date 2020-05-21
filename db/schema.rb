@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_10_150033) do
+ActiveRecord::Schema.define(version: 2020_05_18_171157) do
 
   create_table "alignments", force: :cascade do |t|
     t.string "title"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 2020_05_10_150033) do
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_playing_cards_on_card_id"
     t.index ["game_id"], name: "index_playing_cards_on_game_id"
+  end
+
+  create_table "training_subscriptions", force: :cascade do |t|
+    t.string "user_name"
+    t.string "user_email"
+    t.integer "training_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["training_id"], name: "index_training_subscriptions_on_training_id"
+    t.index ["user_id"], name: "index_training_subscriptions_on_user_id"
   end
 
   create_table "trainings", force: :cascade do |t|

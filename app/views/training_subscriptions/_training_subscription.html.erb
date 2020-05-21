@@ -1,0 +1,11 @@
+
+<% if @training_subscription_user.present? %>
+  <div>
+    <%= link_to(
+            'Отписаться',
+            training_training_subscription_path(@training, @training_subscription_user),
+            class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
+        )
+    %>
+  </div>
+<% end %>
