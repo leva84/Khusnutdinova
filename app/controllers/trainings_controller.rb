@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
   before_action :authorize_admin!, except: [:index, :show]
-  before_action :set_training, only: [:show, :edit, :edit, :destroy]
+  before_action :set_training, only: [:show, :update, :edit, :destroy]
 
   def index
     @trainings = Training.all
